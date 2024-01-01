@@ -12,9 +12,9 @@ def rule_color() -> None:
   print(Back.GREEN + '[This color means that the letter is in the word and that it is in the right place.]')
   
 def show_results(attempts: int, input_word: str,
-                 word_history: list, res_word: str):
+                 word_history: list, res_word: str, user_word: str):
   print(attempts)
   print(input_word)
   print(res_word)
   print(word_history)
-  
+  print(user_word)

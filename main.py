@@ -20,7 +20,7 @@ def game():  # Try to separate the logic and decor into a separate file. game(ch
     if process_result:
       user_word, word_history = process_result
       attempts += 1
-      dm.show_results(attempts, input_word, word_history, res_word)
+      dm.show_results(attempts, input_word, word_history, res_word, user_word)
     else:
       print('The word is not in the database. Try again')
     

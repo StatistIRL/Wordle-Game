@@ -14,7 +14,9 @@ def processing(input_word: str,user_word: str,
     if input_word in file.read():
       for i in range(5):
         if input_word[i] == res_word[i]:
+          user_word = list(user_word)
           user_word[i] = res_word[i]
+          user_word = ''.join(user_word)
       word_history.append(input_word)
       
       return [user_word, word_history]
