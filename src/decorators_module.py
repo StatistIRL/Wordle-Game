@@ -1,5 +1,5 @@
 from colorama import init, Fore, Back
-from functools import wraps
+
 def welcome() -> None:
   print('_' * 30 + 'Wordle-Game' + '_' * 30)
   print('Welcome to the Wordle-Game'.center(71))
@@ -13,8 +13,38 @@ def rule_color() -> None:
   
 def show_results(attempts: int, input_word: str,
                  word_history: list, res_word: str, user_word: str):
-  print(attempts)
-  print(input_word)
-  print(res_word)
-  print(word_history)
-  print(user_word)
+  KEYBOARD = ('QWERTYUIOP', 'ASDFGHJKL', 'ZXCVBNM')
+  word_history = ['','','','','','']
+  print('-' * 47)
+  print('#' * 47)
+  print('-' * 47)
+  print(' ' * 8 + '|')
+  print('Word:' + ' ' * 3 + '|' + ' ' * 5 + f'Attempts: {attempts}')
+  print('_' * 8 + '|')
+  print(' ' * 8 + '|')
+  print(user_word + ' ' * 3 + '|')
+  print('_' * 8 + '|')
+  for i in range(6):
+    print(' ' * 8 + '|')
+    print(f'{word_history[i]:8}|' + (' ' * 10 + decor_keyboard(KEYBOARD[i], user_word, res_word, input_word)) if i < 3 else '')
+  
+  
+
+def decor_keyboard(keyboard_line: str, user_word: str, res_word: str, input_word: str) -> str:
+  result = []
+  init(autoreset=True)
+  for i in keyboard_line:
+    if i in user_word:
+      result.append(Back.GREEN + i + Back.RESET)
+    
+    elif i in res_word and input_word:
+      result.append(Back.YELLOW + Fore.RED + i + Back.RESET + Fore.RESET)
+      
+    else:
+      result.append(i)
+  
+  return ' '.join(result)
+        
+    
+
+
