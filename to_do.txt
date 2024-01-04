@@ -1,2 +1,0 @@
-To do:
-main.py; line 18; separate the processing function into a separate module word checking in the database 
