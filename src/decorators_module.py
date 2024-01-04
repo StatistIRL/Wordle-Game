@@ -11,10 +11,10 @@ def rule_color() -> None:
   print(Back.YELLOW + Fore.RED + '[This color means the letter is in the word, but not in its place.]')
   print(Back.GREEN + '[This color means that the letter is in the word and that it is in the right place.]')
   
-def show_results(attempts: int, input_word: str,
-                 word_history: list, res_word: str, user_word: str):
+
+def show_results(attempts: int, word_history: list,
+                 res_word: str, user_word: str):
   KEYBOARD = ('QWERTYUIOP', 'ASDFGHJKL', 'ZXCVBNM')
-  word_history = ['','','','','','']
   print('-' * 47)
   print('#' * 47)
   print('-' * 47)
@@ -26,7 +26,9 @@ def show_results(attempts: int, input_word: str,
   print('_' * 8 + '|')
   for i in range(6):
     print(' ' * 8 + '|')
-    print(f'{word_history[i]:8}|' + (' ' * 10 + decor_keyboard(KEYBOARD[i], user_word, res_word, input_word)) if i < 3 else '')
+    print(f'{word_history[i]:8}|' + (' ' * 10 + decor_keyboard(KEYBOARD[i], user_word, res_word, word_history[attempts])) if i < 3 else '')
+  input_word = input().upper()
+  return input_word
   
   
 
