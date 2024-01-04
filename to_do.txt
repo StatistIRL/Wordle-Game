@@ -1,0 +1,2 @@
+main.py
+line 15; letter_colors; save colors for each letter 
