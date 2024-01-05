@@ -16,7 +16,7 @@ def game():
                'G': '', 'H': '', 'I': '', 'J': '', 'K': '', 'L': '',
                'M': '', 'N': '', 'O': '', 'P': '', 'Q': '', 'R': '',
                'S': '', 'T': '', 'U': '', 'V': '', 'W': '', 'X': '', 'Y': '', 'Z': ''}
-    word_history = {}
+    word_history = []
     input_word = ''
     res_word = ['?', '?', '?', '?', '?']
     attempts = 0
@@ -37,7 +37,7 @@ def game():
     else:
         print(f'The chosen word was: {random_word}')
         print('You lost!!!')
-        
+        another_round()
 
 def another_round() -> None:
     print('Do you want to play again?\nTo start playing, press Enter\nFor exit 1 and Enter')
