@@ -14,13 +14,10 @@ def rule_color() -> None:
 
 
 
-def show_main_menu(res_word: str, word_history: list, attempts: int, letter_colors: dict) -> None:
+def show_main_menu(res_word: str, word_history: dict, attempts: int, letter_colors: dict) -> None:
     print(f"{'_' * 10}Wordle{'_' * 10}")
     print(f"Attempts:")
     print(''.join(res_word))
-    for word in word_history:
-        for letter in word:
-            print((letter_colors[letter] + letter + Back.RESET + Fore.RESET), end='')
-        print()
-   
+    for word in word_history.values():
+        print(word)
     print("Letters: " + ' '.join([color + letter + Back.RESET + Fore.RESET for letter, color in letter_colors.items()]))

@@ -29,3 +29,8 @@ def update_colors(letter_colors: dict, input_word: str,
         else:
             pass
     return letter_colors
+
+def save_color_fiw(letter_colors: dict, word_history: dict, input_word: str) -> dict:
+    for letter in input_word:
+        word_history[input_word] += letter_colors[letter] + letter + Back.RESET + Fore.RESET
+    return word_history

@@ -1,11 +1,6 @@
-m = {'a': '11a'}
-l = {'a': 'saa', 'c': 'ad'}
-def say_j(l):
-    con = 1
-    for i in l.keys():
-        l[i] = con
-        con += 1
-
-
-say_j(l)
-print(l)
+from colorama import init, Fore
+a = {'a': '', 'b': ''}
+init(autoreset=True)
+a['b'] += Fore.BLACK
+a['a'] += 'q'
+print(a)
