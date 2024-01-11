@@ -16,7 +16,7 @@ def rule_color() -> None:
 
 def show_main_menu(res_word: str, word_history: dict, attempts: int, letter_colors: dict) -> None:
     print(f"{'_' * 10}Wordle{'_' * 10}")
-    print(f"Attempts:")
+    print(f"Attempts: {attempts}")
     print(''.join(res_word))
     for word in word_history.values():
         print(word)

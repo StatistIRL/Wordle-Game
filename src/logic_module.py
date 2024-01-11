@@ -18,7 +18,6 @@ def word_in_database(input_word: str) -> bool:
     with open(r'database\words.txt', 'r',) as file:
         return input_word in file.read()
     
-    
 def update_colors(letter_colors: dict, input_word: str,
                   res_word: str, random_word: str) -> dict:
     for i in range(5):
@@ -30,7 +29,14 @@ def update_colors(letter_colors: dict, input_word: str,
             pass
     return letter_colors
 
-def save_color_fiw(letter_colors: dict, word_history: dict, input_word: str) -> dict:
+def save_color_fiw(letter_colors: dict, word_history: dict, input_word: str, random_word: str) -> dict:
+    random_word = list(random_word)
     for letter in input_word:
-        word_history[input_word] += letter_colors[letter] + letter + Back.RESET + Fore.RESET
+        if letter in random_word:
+            word_history[input_word] += letter_colors[letter] + letter + Back.RESET + Fore.RESET
+            random_word[random_word.index(letter)] = None
+        else:
+            word_history[input_word] += letter
+    
     return word_history
+

@@ -23,16 +23,16 @@ def game():
     while attempts <= 5:
         dm.show_main_menu(res_word, word_history, attempts, letter_colors)
         input_word = input('Type a word: ').upper()
-        if lm.word_in_database(input_word):
+        if lm.word_in_database(input_word) and input_word not in word_history:
             word_history[input_word] = ''
             lm.update_user_word(input_word, random_word, res_word)
             if '?' not in res_word:
                 break
             attempts += 1
             lm.update_colors(letter_colors, input_word, res_word, random_word)
-            lm.save_color_fiw(letter_colors, word_history, input_word)
+            lm.save_color_fiw(letter_colors, word_history, input_word, random_word)
         else:
-            print('The word is not in the database. Try again')
+            print('This word is not in the database or you have already entered it. Try again')
     if ''.join(res_word) == random_word:
         print('You Win!!!')
     else:
@@ -45,7 +45,7 @@ def another_round() -> None:
     if input() == '1':
         exit()
     else:
-        game()
+        main()
     
    
 if __name__ == '__main__':
